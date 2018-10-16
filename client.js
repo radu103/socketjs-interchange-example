@@ -2,7 +2,7 @@ var socketClient = require('socket.io-client');
 
 var listeningID = process.env.INTERSECTION_ID || "intersection2";
 var publishingIds = ["intersection1", "intersection3"];
-var socketServerUrl = process.env.SOCKET_SERVER_URL || 'http://localhost:3000';
+var socketServerUrl = process.env.SOCKET_SERVER_URL || 'https://stm-socketioservice.cfapps.eu10.hana.ondemand.com';
 
 var intervalFunc;
 

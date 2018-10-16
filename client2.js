@@ -2,7 +2,7 @@ var socketClient = require('socket.io-client');
 
 var listeningID = process.env.INTERSECTION_ID || "intersection1";
 var publishingIds = ["intersection2", "intersection3"];
-var socketServerUrl = process.env.SOCKET_SERVER_URL || 'http://localhost:3000';
+var socketServerUrl = process.env.SOCKET_SERVER_URL || 'https://stm-socketioservice.cfapps.eu10.hana.ondemand.com';
 
 var intervalFunc;
 
@@ -15,11 +15,11 @@ if(listeningID){
     });
     
     socket.on('alive', function(data){
-        console.log("publisher heartbeat received : " , data);
+        console.log("client2 heartbeat received : " , data);
     });
 
     socket.on(listeningID, function(data){
-        console.log(listeningID + " received on publisher : " , data);
+        console.log(listeningID + " received on client2 : " , data);
     });
 
     intervalFunc = setInterval(function(){
@@ -35,8 +35,8 @@ if(listeningID){
             socket.emit("message", mess);
         }
 
-        socket.emit('alive', 'publisher :' + new Date().getTime());
-        console.log("publisher still opened");
+        socket.emit('alive', 'client2 :' + new Date().getTime());
+        console.log("client2 still opened");
 
     }, 1000);
     
