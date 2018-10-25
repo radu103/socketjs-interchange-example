@@ -31,7 +31,7 @@ io.on('connection', function (socket) {
 });
 
 setInterval(function(){
-  io.emit('alive', 'Server is alive : ' + new Date().toISOString());
+  io.emit('alive', 'SocketJS server is alive : ' + new Date().toISOString());
 }, 10000);
 
 console.log('Socket.io is listening on port ', port);
